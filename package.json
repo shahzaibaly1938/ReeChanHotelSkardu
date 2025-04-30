@@ -1,9 +1,12 @@
 {
   "dependencies": {
-    "@tailwindcss/cli": "^4.1.4",
-    "tailwindcss": "^4.1.4"
+    "@tailwindcss/cli": "^4.1.5",
+    "tailwindcss": "^4.1.5"
   },
   "scripts": {
-    "watch:css":"npx @tailwindcss/cli -i ./static/src/styles.css -o ./static/css/styles.css --watch"
+    "watch:css": "npx @tailwindcss/cli -i ./static/src/styles.css -o ./static/css/styles.css --watch"
+  },
+  "devDependencies": {
+    "daisyui": "^5.0.32"
   }
 }
