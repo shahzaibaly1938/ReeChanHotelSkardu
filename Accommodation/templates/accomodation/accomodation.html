@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block content %}
-<div class="flex bg-base-300 pt-2 md:pt-8 pb-2 md:pb-8 w-full h-full flex-col">
+<div class="flex bg-primary-100 pt-2 md:pt-8 pb-2 md:pb-8 w-full h-full flex-col">
 
     <div class="w-full h-10vh md:h-20vh flex flex-col items-center justify-around">
         <h1 class="text-5xl font-bold">Accommodations</h1>
@@ -12,12 +12,13 @@
       </p>
     </div>
 
-    <div class="card  rounded-box grid h-fit place-items-center">
+    <div class="card w-full rounded-box grid h-fit place-items-center">
 
         <div class="flex w-full flex-col lg:flex-row">
+          <a href="{% url 'room-details' %}">
             <div class="card  rounded-box grid h-fit grow place-items-center"><div class="card bg-base-100 w-96 shadow-sm">
                 <div class="card-body">
-                  <h2 class="card-title">Standard Block</h2>
+                  <h2 class="card-title text-2xl">Standard Block</h2> 
                   <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
                 </div>
                 <figure>
@@ -25,11 +26,12 @@
                     src="{% static 'pictures/rooms/standard_cover.jpeg' %}"
                     alt="Shoes" />
                 </figure>
-              </div></div>
+              </div></a><a  href="{% url 'room-details' %}" class="btn mt-2 md:mt-4 w-[60%] btn-primary text-base-100">Reserve Now</a></div>
+
             <div class="divider lg:divider-horizontal"></div>
-            <div class="card rounded-box grid h-fit grow place-items-center"><div class="card bg-base-100 w-96 shadow-sm">
+            <div class="card rounded-box grid h-fit  grow place-items-center"><div class="card bg-base-100 w-96 shadow-sm">
                 <div class="card-body">
-                  <h2 class="card-title">Anchan Block</h2>
+                  <h2 class="card-title text-2xl">Anchan Block</h2>
                   <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
                 </div>
                 <figure>
@@ -37,39 +39,23 @@
                     src="{% static 'pictures/rooms/anchan_cover.jpeg' %}"
                     alt="Shoes" />
                 </figure>
-              </div></div>
+              </div><a class="btn mt-2 md:mt-4 w-[60%] btn-primary text-base-100">Reserve Now</a></div>
+
+              <div class="divider lg:divider-horizontal"></div>
+              <div class="card rounded-box grid h-fit grow place-items-center"><div class="card bg-base-100 w-96 shadow-sm">
+                  <div class="card-body">
+                    <h2 class="card-title text-2xl">Anchan Block</h2>
+                    <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
+                  </div>
+                  <figure>
+                    <img
+                      src="{% static 'pictures/rooms/anchan_cover.jpeg' %}"
+                      alt="Shoes" />
+                  </figure>
+                </div><a class="btn mt-2 md:mt-4 w-[60%] btn-primary text-base-100">Reserve Now</a></div>
           </div>
 
     </div>
-    <div class="divider"></div>
-    <div class="card  rounded-box grid h-fit place-items-center">
-
-        <div class="flex w-full flex-col lg:flex-row">
-            <div class="card  rounded-box grid h-fit grow place-items-center"><div class="card bg-base-100 w-96 shadow-sm">
-                <div class="card-body">
-                  <h2 class="card-title">Royal Block</h2>
-                  <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
-                </div>
-                <figure>
-                  <img
-                    src="{% static 'pictures/rooms/royal_cover.jpeg' %}"
-                    alt="Shoes" />
-                </figure>
-              </div></div>
-            <div class="divider lg:divider-horizontal">OR</div>
-            <div class="card  rounded-box grid h-fit grow place-items-center"><div class="card bg-base-100 w-96 shadow-sm">
-                <div class="card-body">
-                  <h2 class="card-title">Huts</h2>
-                  <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
-                </div>
-                <figure>
-                  <img
-                    src="{% static 'pictures/rooms/standard_cover.jpeg' %}"
-                    alt="Shoes" />
-                </figure>
-              </div></div>
-          </div>
-
-    </div>
+   
   </div>
 {% endblock %}

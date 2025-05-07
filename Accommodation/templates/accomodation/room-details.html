@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="flex bg-primary-100 pt-2 md:pt-8 pb-2 md:pb-8 w-full h-full flex-col">
+
+    <div class="w-full h-10vh md:h-20vh flex flex-col items-center justify-around">
+        <h1 class="text-5xl font-bold">Book Our Standard Rooms</h1>
+      <p class="py-6 w-[80%]">
+        Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
+        quasi. In deleniti eaque aut repudiandae.
+      </p>
+
+
+      <div class="carousel rounded-box w-[90%] h-auto md:w-[70%] md:h-[60vh]">
+        <div class="carousel-item w-1/2">
+          <img
+            src="{% static 'pictures/rooms/standard_cover.jpeg' %}"
+            class="w-full" />
+        </div>
+        <div class="carousel-item w-1/2">
+          <img
+          src="{% static 'pictures/rooms/royal_cover.jpeg' %}"
+            class="w-full" />
+        </div>
+        <div class="carousel-item w-1/2">
+          <img
+          src="{% static 'pictures/rooms/anchan_cover.jpeg' %}"
+            class="w-full" />
+        </div>
+        <div class="carousel-item w-1/2">
+          <img
+          src="{% static 'pictures/rooms/standard_cover.jpeg' %}"
+            class="w-full" />
+        </div>
+        <div class="carousel-item w-1/2">
+          <img
+          src="{% static 'pictures/rooms/royal_cover.jpeg' %}"
+            class="w-full" />
+        </div>
+        <div class="carousel-item w-1/2">
+          <img
+          src="{% static 'pictures/rooms/standard_cover.jpeg' %}"
+            class="w-full" />
+        </div>
+        <div class="carousel-item w-1/2">
+          <img
+          src="{% static 'pictures/rooms/anchan_cover.jpeg' %}"
+            class="w-full" />
+        </div>
+      </div>
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+{% endblock %}
