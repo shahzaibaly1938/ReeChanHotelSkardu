@@ -4,6 +4,7 @@
 <head>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <title>{% block title %}Ree Chan Skardu{% endblock %}</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'pictures/logo/reechan_logo.png' %}">
 </head>
 
 <body>
@@ -24,7 +25,11 @@
               <li><a href="{% url 'about' %}">About Us</a></li>
             </ul>
           </div>
-          <a class="btn btn-ghost text-xl">ReeChan Skardu</a>
+          <div class="w-40 h-20 flex justify-center items-center">
+           <a href=""><img src="{% static 'pictures/logo/reechan_logo.png' %}" alt="Reechan Hotel Skardu Logo"></a> 
+          </div>
+    
+          
         </div>
         <div class="navbar-center hidden lg:flex">
           <ul class="menu menu-horizontal px-1">
@@ -38,6 +43,7 @@
           </ul>
         </div>
         <div class="navbar-end">
+          
           <a class="btn btn-primary text-base-100">Reserve Now</a>
         </div>
       </div>
