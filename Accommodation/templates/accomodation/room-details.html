@@ -6,47 +6,46 @@
 <div class="flex bg-primary-100 pt-2 md:pt-8 pb-2 md:pb-8 w-full h-full flex-col">
 
     <div class="w-full h-10vh md:h-20vh flex flex-col items-center justify-around">
-        <h1 class="text-5xl font-bold">Book Our Standard Rooms</h1>
+        <h1 class="text-5xl font-bold">Book Our {{room.name}} Rooms</h1>
       <p class="py-6 w-[80%]">
-        Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
-        quasi. In deleniti eaque aut repudiandae.
+        {{room.description}}
       </p>
 
 
       <div class="carousel rounded-box w-[90%] h-auto md:w-[70%] md:h-[60vh]">
         <div class="carousel-item w-1/2">
           <img
-            src="{% static 'pictures/rooms/standard_cover.jpeg' %}"
+            src="/media/{{room.cover_image}}"
             class="w-full" />
         </div>
         <div class="carousel-item w-1/2">
           <img
-          src="{% static 'pictures/rooms/royal_cover.jpeg' %}"
+          src="/media/{{room.image_2}}"
             class="w-full" />
         </div>
         <div class="carousel-item w-1/2">
           <img
-          src="{% static 'pictures/rooms/anchan_cover.jpeg' %}"
+          src="/media/{{room.image_3}}"
             class="w-full" />
         </div>
         <div class="carousel-item w-1/2">
           <img
-          src="{% static 'pictures/rooms/standard_cover.jpeg' %}"
+          src="/media/{{room.image_4}}"
             class="w-full" />
         </div>
         <div class="carousel-item w-1/2">
           <img
-          src="{% static 'pictures/rooms/royal_cover.jpeg' %}"
+          src="/media/{{room.image_5}}"
             class="w-full" />
         </div>
         <div class="carousel-item w-1/2">
           <img
-          src="{% static 'pictures/rooms/standard_cover.jpeg' %}"
+          src="/media/{{room.image_4}}"
             class="w-full" />
         </div>
         <div class="carousel-item w-1/2">
           <img
-          src="{% static 'pictures/rooms/anchan_cover.jpeg' %}"
+          src="/media/{{room.image_3}}"
             class="w-full" />
         </div>
       </div>
@@ -56,6 +55,93 @@
     </div>
 
 
+    <div class="w-full mt-2 h-[60vh] md:h-[20vh] flex  justify-center md:absolute top-[80%] items-center">
+      <div class=" w-[90%] md:w-[95%] bg-primary rounded-3xl opacity-75 h-full flex justify-center items-center ">
+        <div class="join p-2 flex flex-col md:flex-row items-center md:justify-around">
+        
+            <div class="flex ml-1">
+              <fieldset class="fieldset">
+                <legend class="fieldset-legend text-base-100 ml-2">Check In</legend>
+                <input type="date" class="input rounded-2xl -mt-2 md:ml-1" />
+              </fieldset>
+           
+              <fieldset class="fieldset ml-1">
+                <legend class="fieldset-legend text-base-100 ml-2">Check Out</legend>
+                <input type="date" class="input rounded-2xl -mt-2 md:ml-1" />
+              </fieldset>
+            </div>
+
+            <div class="flex ml-1">
+              <fieldset class="fieldset">
+                <legend class="fieldset-legend text-base-100 ml-2">Room Type</legend>
+                <select class="select rounded-2xl -mt-2 md:ml-1">
+                  <option>Standard</option>
+                  <option>Royal</option>
+                  <option>Anchan</option>
+                </select>
+              </fieldset>
+           
+              <fieldset class="fieldset ml-1">
+                <legend class="fieldset-legend text-base-100 ml-2">Rooms</legend>
+                <select class="select rounded-2xl -mt-2 md:ml-1">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                  <option>6</option>
+                  <option>7</option>
+                  <option>8</option>
+                  <option>9</option>
+                </select>
+              </fieldset>
+              <fieldset class="fieldset ml-1">
+                <legend class="fieldset-legend text-base-100 ml-2">Adults</legend>
+                <select class="select rounded-2xl -mt-2 md:ml-1">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </fieldset>
+              <fieldset class="fieldset ml-1">
+                <legend class="fieldset-legend text-base-100 ml-2">Children</legend>
+                <select class="select rounded-2xl -mt-2 md:ml-1">
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </fieldset>
+            </div>
+
+
+            <div class="flex ml-1">
+              <fieldset class="fieldset">
+                <legend class="fieldset-legend text-base-100 ml-2">Phone Number</legend>
+                <input type="tel" placeholder="+9234999999" class="input rounded-2xl -mt-2 md:ml-1" />
+              </fieldset>
+           
+              <fieldset class="fieldset ml-2">
+                <legend class="fieldset-legend text-base-100 ml-2">Email</legend>
+                <input type="email" placeholder="@gmail.com" class="input rounded-2xl -mt-2 md:ml-1" />
+              </fieldset>
+            </div>
+          
+            <div class="flex ml-2 mt-5">
+            
+              <button class="btn join-item rounded-2xl ">Reserve Now</button>
+            </div>
+           
+          
+        </div>
+
+        
+
+      </div>
+     
+    </div>
 
 
 

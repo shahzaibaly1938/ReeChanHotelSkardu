@@ -16,15 +16,15 @@
     <div class="w-full h-[50vh] md:h-[80vh] overflow-hidden">
       <img src="{% static 'pictures/Hall/hall (8).jpeg' %}" width="100%" alt="">
     </div>
-    <div class="w-full h-[10vh] md:h-[20vh] flex justify-center md:absolute top-[90%] items-center">
+    <div class="w-full h-[40vh] md:h-[20vh] flex justify-center md:absolute top-[90%] items-center">
       <div class=" w-[90%] md:w-[70%] bg-primary rounded-3xl opacity-75 h-full flex justify-center items-center ">
-        <div class="join p-2 flex justify-around">
+        <div class="join p-2 flex flex-col md:flex-row items-center md:justify-around">
           <div>
             <div>
-              <input type="datetime-local" class="input" />
+              <input type="datetime-local" class="input rounded-2xl mt-1 md:ml-1" />
             </div>
           </div>
-          <label class="input validator">
+          <label class="input validator rounded-2xl mt-1 md:ml-2">
             <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
               <g fill="none">
                 <path
@@ -51,17 +51,16 @@
             />
           </label>
 
-          <input type="text" class="input" placeholder="Additional Info" />
+          <input type="text" class="input rounded-2xl  mt-1 md:ml-1" placeholder="Additional Info" />
         
           <div class="indicator">
             
-            <button class="btn join-item">Reserve Now</button>
+            <button class="btn join-item rounded-2xl  mt-1 md:ml-1">Reserve Now</button>
           </div>
         </div>
       </div>
      
     </div>
-
 
 
 
