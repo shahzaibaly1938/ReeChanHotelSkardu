@@ -1,6 +1,13 @@
 from django.db import models
 
 # Create your models here.
+class Feature(models.Model):
+    name = models.CharField(max_length=400)
+    svg = models.TextField(blank=True, default='')
+
+    def __str__(self):
+        return self.name
+    
 class Room_type(models.Model):
     name = models.CharField(max_length=50)
     no_of_rooms = models.IntegerField()
@@ -12,6 +19,7 @@ class Room_type(models.Model):
     image_4 = models.ImageField(upload_to="room_images/", blank=True, null=True)
     image_5 = models.ImageField(upload_to="room_images/", blank=True, null=True)
     description = models.TextField(max_length=500, default='')
+    features = models.ManyToManyField(Feature, default='')
     created_at = models.DateTimeField(auto_now_add=True)
 
 
@@ -34,3 +42,6 @@ class Booking(models.Model):
 
     def __str__(self):
         return f"{self.name} - {self.phone_number} _ CheckIn {self.check_in} _ CheckOut {self.check_out}"
+
+
+

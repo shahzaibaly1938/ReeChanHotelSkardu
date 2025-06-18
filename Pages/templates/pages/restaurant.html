@@ -6,147 +6,88 @@
 <div class="flex bg-primary-100 pt-2 md:pt-8 pb-2 md:pb-8 w-full h-full flex-col">
 
     <div class="w-full h-10vh md:h-20vh flex  p-4 md:p-0  flex-col items-center justify-around">
-        <h1 class="text-5xl font-bold">Restaurant</h1>
+        <h1 class="text-5xl font-bold">{{ restaurant.name }}</h1>
       <p class="py-6 w-[80%]">
-        Welcome to our spectacular Rooftop Barbecue experience! Our rooftop terrace offers breathtaking views and a cozy ambiance, making it the perfect setting for an unforgettable barbecue feast. Join us as we take you on a delightful journey of Flavors, where succulent meats and delectable dishes await. We can't wait to welcome you to this unforgettable dining experience in the heart of the city!
+       {{ restaurant.desc }}
       </p>
+      <div class="w-[80%] h-fit flex justify-end"><a href="{% url 'reserve_table' %}"><button class="btn btn-primary text-base-100">Reserve Table</button></a></div>
+       
     </div>
 
+    {% for special_dish in special_dishes %}
+
     <div class="flex w-full items-center h-fit flex-col">
+      
         <div class="card bg-primary-300 w-[90%] rounded-box grid h-fit place-items-center">
             <div class="hero bg-primary-200 min-h-[50vh]">
                 <div class="hero-content flex-col lg:flex-row-reverse">
                   <img
-                    src="{% static 'pictures/restaurant/Special_Food.jpg' %}"
+                    src="/media/{{ special_dish.image }}"
                     class="max-w-sm rounded-lg shadow-2xl"
                   />
                   <div>
-                    <h1 class="text-5xl font-bold">The Rooftop Barbeque</h1>
-                    <p class="py-6">
-                      The Rooftop Barbeque is one of the best kept secrets of Ramada Islamabad with the best view of Rawal Lake.Our rooftop terrace offers breathtaking views and a cozy ambiance, making it the perfect setting for an unforgettable barbecue feast. Join us as we take you on a delightful journey of Flavors, where succulent meats and delectable dishes await. We can't wait to welcome you to this unforgettable dining experience in the heart of the city!
-                    </p>
-                    <button class="btn btn-primary text-base-100">Reserve Table</button>
+                    <p class="py-2 font-bold">Our Special Dish Right Now!</p>
+                    <h1 class="text-5xl font-bold">{{ special_dish.name}}</h1>
+                    <p class="py-6">{{ special_dish.desc }}</p>
+                   
                   </div>
                 </div>
               </div>
         </div>
-        <div class="divider"></div>
-        <div class="card bg-primary-300 w-[90%] rounded-box grid h-fit place-items-center">
-          <h1 class="text-4xl font-bold py-6">Check Out Our Varities in Traditional Meals.</h1>
-            <div class="carousel rounded-box">
-                <div class="carousel-item w-fit">
-                  <img
-                    src="{% static 'pictures/restaurant/traditional_soup.jpg' %}"
-                    alt="Soup"
-                    class="w-[70vw] md:w-[30vw]" />
-                </div>
-                <div class="carousel-item">
-                  <img
-                    src="{% static 'pictures/restaurant/traditional_bread.jpg' %}"
-                    alt="Soup"
-                    class="w-[70vw] md:w-[30vw]" />
-                </div>
-                <div class="carousel-item">
-                  <img
-                    src="{% static 'pictures/restaurant/traditional_balay.jpg' %}"
-                    alt="Soup"
-                    class="w-[70vw] md:w-[30vw]" />
-                </div>
-                <div class="carousel-item">
-                  <img
-                    src="{% static 'pictures/restaurant/traditional_soup.jpg' %}"
-                    alt="Soup"
-                    class="w-[70vw] md:w-[30vw]" />
-                </div>
-                <div class="carousel-item">
-                  <img
-                  src="{% static 'pictures/restaurant/traditional_meat.jpg' %}"
-                  alt="Soup"
-                  class="w-[70vw] md:w-[30vw]" />
-                </div>
-                <div class="carousel-item">
-                  <img
-                  src="{% static 'pictures/restaurant/traditional_cury.jpg' %}"
-                  alt="Soup"
-                  class="w-[70vw] md:w-[30vw]" />
-                </div>
-                <div class="carousel-item">
-                  <img
-                    src="{% static 'pictures/restaurant/traditional_rice.jpg' %}"
-                    alt="rice"
-                    class="w-[70vw] md:w-[30vw]" />
-                </div>
-              </div>
-        </div>
+            
       </div>
+       {% endfor %}
 
+      {% for dish in dishes %} 
+      <div class="divider"></div>
       <div class="flex w-full items-center h-fit flex-col">
         <div class="card bg-primary-300 w-[90%] py-6 rounded-box grid h-fit place-items-center">
             <div class="hero bg-primary-200 min-h-[50vh]">
                 <div class="hero-content flex-col lg:flex-row">
                   <img
-                  src="{% static 'pictures/restaurant/maria_cusine.jpg' %}"
+                  src="/media/{{dish.image1}}"
                     class="max-w-sm rounded-lg shadow-2xl"
                   />
                   <div>
-                    <h1 class="text-5xl font-bold">Maira – The Multi-cuisine Restaurant</h1>
-                    <p class="py-6">
-                      Welcome to Maira, the ultimate destination for culinary delights from around the world. Step into our inviting ambiance and embark on a journey that tantalizes your taste buds with an extraordinary array of flavours, textures, and aromas. Book your table now and let us transport you on a gastronomic adventure like no other.
-                    </p>
+                    <h1 class="text-5xl font-bold">{{dish.name}} dishes</h1>
+                    <p class="py-6">{{dish.desc}}</p>
                   </div>
                 </div>
               </div>
         </div>
         <div class="divider"></div>
         <div class="card bg-primary-300 w-[90%] rounded-box grid h-fit place-items-center">
-          <h1 class="text-4xl font-bold py-6">Check Out Our Varities in Pakistani & Chinese Meals.</h1>
+          <h1 class="text-4xl font-bold py-6">Check Out Our Varities in {{dish.name}} Meals.</h1>
             <div class="carousel rounded-box">
                 <div class="carousel-item w-fit">
                   <img
-                    src="{% static 'pictures/restaurant/traditional_soup.jpg' %}"
+                    src="/media/{{dish.image2}}"
                     alt="Soup"
                     class="w-[70vw] md:w-[30vw]" />
                 </div>
                 <div class="carousel-item">
                   <img
-                    src="{% static 'pictures/restaurant/traditional_bread.jpg' %}"
+                    src="/media/{{dish.image3}}"
                     alt="Soup"
                     class="w-[70vw] md:w-[30vw]" />
                 </div>
                 <div class="carousel-item">
                   <img
-                    src="{% static 'pictures/restaurant/traditional_balay.jpg' %}"
+                    src="/media/{{dish.image4}}"
                     alt="Soup"
                     class="w-[70vw] md:w-[30vw]" />
                 </div>
                 <div class="carousel-item">
                   <img
-                    src="{% static 'pictures/restaurant/traditional_soup.jpg' %}"
+                    src="/media/{{dish.image1}}"
                     alt="Soup"
                     class="w-[70vw] md:w-[30vw]" />
                 </div>
-                <div class="carousel-item">
-                  <img
-                  src="{% static 'pictures/restaurant/traditional_meat.jpg' %}"
-                  alt="Soup"
-                  class="w-[70vw] md:w-[30vw]" />
-                </div>
-                <div class="carousel-item">
-                  <img
-                  src="{% static 'pictures/restaurant/traditional_cury.jpg' %}"
-                  alt="Soup"
-                  class="w-[70vw] md:w-[30vw]" />
-                </div>
-                <div class="carousel-item">
-                  <img
-                    src="{% static 'pictures/restaurant/traditional_rice.jpg' %}"
-                    alt="rice"
-                    class="w-[70vw] md:w-[30vw]" />
-                </div>
+                           
               </div>
         </div>
       </div>    
-
+      {% endfor %}
 
 
 

@@ -34,3 +34,67 @@ class Contact(models.Model):
 
     def __str__(self):
         return self.name
+    
+
+
+class Restaurant(models.Model):
+    name = models.CharField(max_length=200)
+    desc = models.TextField(blank=True)
+
+    def __str__(self):
+        return self.name
+    
+
+class Special_Dish(models.Model):
+    name = models.CharField(max_length=200)
+    desc = models.TextField(blank=True)
+    image = models.ImageField(upload_to='dishes/', blank=True, null=True)
+
+    def __str__(self):
+        return self.name
+    
+class Dishe(models.Model):
+    name = models.CharField(max_length=200)
+    desc = models.TextField(blank=True)
+    image1 = models.ImageField(upload_to='dishes/', blank=True, null=True)
+    image2 = models.ImageField(upload_to='dishes/', blank=True, null=True)
+    image3 = models.ImageField(upload_to='dishes/', blank=True, null=True)
+    image4 = models.ImageField(upload_to='dishes/', blank=True, null=True)
+
+    def __str__(self):
+        return self.name
+
+
+
+class Aboutus(models.Model):
+    name = models.CharField(max_length=200)
+    desc = models.TextField(blank=True)
+    image1 = models.ImageField(upload_to='hotel_image/', blank=True, null=True)
+    image2 = models.ImageField(upload_to='hotel_image/', blank=True, null=True)
+    image3 = models.ImageField(upload_to='hotel_image/', blank=True, null=True)
+
+    def __str__(self):
+        return self.name
+    
+class MeetingsPage(models.Model):
+    name = models.CharField(max_length=200)
+    desc = models.TextField(blank=True)
+    heading2 = models.CharField(max_length=200, default='')
+    image1 = models.ImageField(upload_to='hotel_image/', blank=True, null=True)
+    image2 = models.ImageField(upload_to='hotel_image/', blank=True, null=True)
+    image3 = models.ImageField(upload_to='hotel_image/', blank=True, null=True)
+    image4 = models.ImageField(upload_to='hotel_image/', blank=True, null=True)
+
+    def __str__(self):
+        return self.name
+    
+
+class Contactus(models.Model):
+    name = models.CharField(max_length=200)
+    desc = models.TextField(blank=True)
+    address = models.TextField(blank=True)
+    email = models.EmailField()
+    phone = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.name

@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="flex bg-primary-100 pt-2 md:pt-8 pb-2 md:pb-8 w-full h-full flex-col">
+
+    <div class="w-full h-10vh p-2 md:h-20vh flex flex-col items-center justify-around">
+        <h1 class="text-5xl font-bold">Reserve a Table</h1>
+        <p class="py-6 w-[80%] text-center">
+            Book your table at Reechan Resort for a memorable dining experience. Please fill out the form below and our team will confirm your reservation.
+        </p>
+    </div>
+
+    <div class="w-full mt-2 h-[60vh] md:h-[20vh] flex justify-center items-center">
+        <div class="w-[90%] md:w-[95%] bg-primary rounded-3xl opacity-75 h-full flex justify-center items-center shadow-2xl">
+            <form class="join p-2 flex flex-col md:flex-row items-center md:justify-around w-full gap-2" autocomplete="off">
+                <div class="flex ml-1">
+                    <fieldset class="fieldset">
+                        <legend class="fieldset-legend text-base-100 ml-2">Full Name</legend>
+                        <input type="text" name="name" class="input rounded-2xl -mt-2 md:ml-1" required />
+                    </fieldset>
+                </div>
+                <div class="flex ml-1">
+                    <fieldset class="fieldset">
+                        <legend class="fieldset-legend text-base-100 ml-2">Contact</legend>
+                        <input type="tel" name="contact" placeholder="+9234999999" class="input rounded-2xl -mt-2 md:ml-1" required />
+                    </fieldset>
+                    <fieldset class="fieldset ml-2">
+                        <legend class="fieldset-legend text-base-100 ml-2">Email</legend>
+                        <input type="email" name="email" placeholder="@gmail.com" class="input rounded-2xl -mt-2 md:ml-1" required />
+                    </fieldset>
+                </div>
+                <div class="flex ml-1">
+                    <fieldset class="fieldset">
+                        <legend class="fieldset-legend text-base-100 ml-2">Date & Time</legend>
+                        <input type="datetime-local" name="datetime" class="input rounded-2xl -mt-2 md:ml-1" required />
+                    </fieldset>
+                    <fieldset class="fieldset ml-2">
+                        <legend class="fieldset-legend text-base-100 ml-2">Reserve For (Hours)</legend>
+                        <input type="number" name="hours" min="1" max="12" value="1" class="input rounded-2xl -mt-2 md:ml-1" required />
+                    </fieldset>
+                </div>
+                <div class="flex ml-2 mt-5">
+                    <button type="submit" class="btn join-item rounded-2xl">Reserve Now</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
