@@ -1,4 +1,5 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en" data-theme="luxury">
 <head>
@@ -17,7 +18,7 @@
             <ul
               tabindex="0"
               class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-              <li><a>Home</a></li>
+              <li><a href="{% url 'home' %}">Home</a></li>
               <li><a href="{% url 'Accomodation' %}">Accommodation</a></li>
               <li><a href="{% url 'restaurant' %}">Restaurant</a></li>
               <li><a href="{% url 'event' %}">Meetings & Events</a></li>
@@ -26,14 +27,14 @@
             </ul>
           </div>
           <div class="w-40 h-20 flex justify-center items-center">
-           <a href=""><img src="{% static 'pictures/logo/reechan_logo.png' %}" alt="Reechan Hotel Skardu Logo"></a> 
+           <a href="{% url 'home' %}"><img src="{% static 'pictures/logo/reechan_logo.png' %}" alt="Reechan Hotel Skardu Logo"></a> 
           </div>
     
           
         </div>
         <div class="navbar-center hidden lg:flex">
           <ul class="menu menu-horizontal px-1">
-            <li><a>Home</a></li>
+           <li><a href="{% url 'home' %}">Home</a></li>
             <li><a href="{% url 'Accomodation' %}">Accommodation</a></li>
             <li><a href="{% url 'restaurant' %}">Restaurant</a></li>
             <li><a href="{% url 'event' %}">Meetings & Events</a></li>
@@ -44,11 +45,12 @@
         </div>
         <div class="navbar-end">
           
-          <a class="btn btn-primary text-base-100">Reserve Now</a>
+          <a href="{% url 'Accomodation' %}" class="btn btn-primary text-base-100">Book Now</a>
         </div>
       </div>
     <div class="w-full h-fit" id="content">
         {% block content %}{% endblock %}
     </div>
+    {% include "Components/footer.html" %}
 </body>
 </html>

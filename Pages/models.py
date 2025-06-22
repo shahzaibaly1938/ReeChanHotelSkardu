@@ -1,5 +1,6 @@
 from django.db import models
 from datetime import datetime
+from Accommodation.models import Feature
 
 # Create your models here.
 class Table_Reservation(models.Model):
@@ -40,6 +41,7 @@ class Contact(models.Model):
 class Restaurant(models.Model):
     name = models.CharField(max_length=200)
     desc = models.TextField(blank=True)
+    image1 = models.ImageField(upload_to='restaurant/', blank=True, null=True)
 
     def __str__(self):
         return self.name
@@ -95,6 +97,17 @@ class Contactus(models.Model):
     address = models.TextField(blank=True)
     email = models.EmailField()
     phone = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.name
+
+
+class Home(models.Model):
+    name = models.CharField(max_length=200)
+    desc = models.TextField(blank=True)
+    image1 = models.ImageField(upload_to='hotel_image/', blank=True, null=True)
+    whychose = models.ManyToManyField(Feature, default='')
+
 
     def __str__(self):
         return self.name

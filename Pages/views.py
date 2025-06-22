@@ -1,6 +1,24 @@
 from django.shortcuts import render
-from .models import Restaurant, Special_Dish, Dishe, Aboutus, Contactus, MeetingsPage
+from .models import Restaurant, Special_Dish, Dishe, Aboutus, Contactus, MeetingsPage, Home
+from Accommodation.models import Room_type
 # Create your views here.
+
+def home(request):
+    aboutus = Aboutus.objects.all().first()
+    home = Home.objects.all().first()
+    rooms = Room_type.objects.all()
+    meeting = MeetingsPage.objects.all().first()
+    restaurant = Restaurant.objects.all().first()
+
+    context = {
+        'aboutus':aboutus,
+        'home':home,
+        'rooms':rooms,
+        'meeting':meeting,
+        'restaurant':restaurant,
+    }
+    return render(request, 'pages/home.html', context)
+
 
 def restaurant(request):
     restaurant = Restaurant.objects.all().first()

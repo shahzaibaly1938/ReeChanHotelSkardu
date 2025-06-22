@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<!-- Hero Section -->
+<div class="w-full bg-primary-100 py-10 flex flex-col-reverse md:flex-row items-center justify-between gap-10 px-4 md:px-16">
+    <div class="flex-1 flex flex-col items-center md:items-start text-center md:text-left">
+        <h1 class="text-4xl md:text-6xl font-extrabold text-primary mb-4 drop-shadow-lg">{{home.name}}</h1>
+        <p class="text-lg md:text-xl text-gray-700 mb-6">
+            {{home.desc}}
+        </p>
+        <div class="flex gap-4 mb-6">
+            <a href="{% url 'Accomodation' %}" class="btn btn-primary rounded-2xl px-6 py-2 text-base-100 font-semibold shadow-md">View Rooms</a>
+            <a href="{% url 'reserve_table' %}" class="rounded-2xl px-6 py-2 font-semibold shadow-md">Reserve Table</a>
+        </div>
+    </div>
+    <div class="flex-1 flex justify-center mb-8 md:mb-0">
+        <img src="/media/{{home.image1}}" alt="Reechan Resort" class="rounded-3xl shadow-xl w-full md:w-[450px] h-64 md:h-[400px] object-cover" />
+    </div>
+</div>
+
+<!-- About Section -->
+<div class="w-full bg-base-100 py-12 px-4 md:px-16 flex flex-col md:flex-row items-center gap-10">
+    <div class="md:w-1/2 w-full flex justify-center mb-8 md:mb-0">
+        <img src="/media/{{aboutus.image1}}" alt="About Reechan Resort" class="rounded-2xl shadow-lg w-full md:w-[400px] h-56 md:h-80 object-cover" />
+    </div>
+    <div class="md:w-1/2 w-full flex flex-col justify-center">
+        <h2 class="text-3xl font-bold text-primary mb-3">{{aboutus.name}}</h2>
+        <p class="text-lg text-gray-700 mb-4">{{aboutus.desc}}</p>
+        <a href="{% url 'about' %}" class="btn btn-primary mt-2 rounded-2xl px-6 py-2 text-base-100 font-semibold w-max">Learn More</a>
+    </div>
+</div>
+
+<!-- Features Section -->
+<div class="w-full bg-primary-100 py-12 px-4">
+    <h2 class="text-3xl font-bold text-center text-primary mb-10">Why Choose Us?</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 max-w-6xl mx-auto">
+        {% for feature in home.whychose.all %}
+        <div class="flex flex-col items-center bg-base-100 rounded-2xl shadow-md p-6">
+            {{feature.svg|safe }}
+            <span class="font-semibold text-lg mt-2 text-center">{{ feature.name }}</span>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- Accommodation Preview Section -->
+<div class="w-full py-14 bg-base-100 px-4">
+    <h2 class="text-3xl font-bold text-center text-primary mb-10">Our Rooms</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        {% for room in rooms|slice:":3" %}
+        <div class="bg-primary-100 rounded-2xl shadow-lg flex flex-col">
+            <img src="/media/{{room.cover_image}}" alt="{{room.name}}" class="rounded-t-2xl h-48 object-cover w-full" />
+            <div class="p-4 flex flex-col gap-2">
+                <h3 class="text-xl font-bold text-primary">{{room.name}}</h3>
+                <p class="flex items-center gap-2 text-base font-semibold">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v8m0 0c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm0 0h4" /></svg>
+                    {{room.price_per_night}}/- PKR
+                </p>
+                <p class="flex items-center gap-2 text-base">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a4 4 0 00-3-3.87M9 20H4v-2a4 4 0 013-3.87M16 7a4 4 0 11-8 0 4 4 0 018 0zm6 13v-2a4 4 0 00-3-3.87M6 7a4 4 0 018 0" /></svg>
+                    Max Person: {{room.capacity}}
+                </p>
+                <a href="{% url 'room-details' room.id %}" class="btn btn-primary mt-2 rounded-2xl text-base-100">View Details</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="flex justify-center mt-10">
+        <a href="{% url 'Accomodation' %}" class="shadow-md rounded-2xl px-8 py-2 font-semibold">See All Rooms</a>
+    </div>
+</div>
+
+<!-- Events & Dining Section -->
+<div class="w-full py-14 bg-primary-100 px-4">
+    <h2 class="text-3xl font-bold text-center text-primary mb-10">Meetings, Events & Dining</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-6xl mx-auto">
+        <div class="bg-base-100 rounded-2xl shadow-md p-8 flex flex-col items-center">
+            <img src="/media/{{meeting.image1}}" alt="Event Hall" class="rounded-xl h-44 w-full object-cover mb-4" />
+            <h3 class="text-xl font-bold text-primary mb-2">{{meeting.name}}</h3>
+            <p class="text-gray-700 mb-4 text-center">{{meeting.desc|slice:":400"}}...</p>
+            <a href="{% url 'event' %}" class="btn btn-primary rounded-2xl text-base-100">Book Event</a>
+        </div>
+        <div class="bg-base-100 rounded-2xl shadow-md p-8 flex flex-col items-center">
+            <img src="/media/{{restaurant.image1}}" alt="Dining" class="rounded-xl h-44 w-full object-cover mb-4" />
+            <h3 class="text-xl font-bold text-primary mb-2">{{restaurant.name}}</h3>
+            <p class="text-gray-700 mb-4 text-center">{{restaurant.desc|slice:":400"}}...</p>
+            <a href="{% url 'reserve_table' %}" class="btn btn-primary rounded-2xl text-base-100">Reserve Table</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
