@@ -8,4 +8,5 @@ urlpatterns = [
     path('events&meetings/', views.event, name='event'),
     path('aboutus/', views.about, name='about'),
     path('reserve-table/', views.reserve_table, name='reserve_table'),
+    path('privacy-policy-terms-conditions/', views.privacy, name='privacy'),
 ]

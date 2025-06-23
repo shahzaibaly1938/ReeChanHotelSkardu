@@ -1,0 +1,52 @@
+{% if messages %}
+<div class="fixed top-6 right-4 z-50 flex flex-col gap-3">
+  {% for message in messages %}
+    <div 
+      class="
+        flex items-center gap-3 px-5 py-3 rounded-xl shadow-lg border-l-4
+        {% if message.tags == 'success' %}
+          bg-green-50 border-green-500
+        {% elif message.tags == 'info' %}
+          bg-blue-50 border-blue-500
+        {% elif message.tags == 'warning' %}
+          bg-yellow-50 border-yellow-500
+        {% elif message.tags == 'error' or message.tags == 'danger' %}
+          bg-red-50 border-red-500
+        {% else %}
+          bg-base-100 border-primary
+        {% endif %}
+        animate-fade-in
+      "
+      role="alert"
+    >
+      <!-- Icon -->
+      {% if message.tags == 'success' %}
+        <svg class="w-6 h-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+      {% elif message.tags == 'info' %}
+        <svg class="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M12 20a8 8 0 100-16 8 8 0 000 16z" /></svg>
+      {% elif message.tags == 'warning' %}
+        <svg class="w-6 h-6 text-yellow-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M12 2a10 10 0 100 20 10 10 0 000-20z" /></svg>
+      {% elif message.tags == 'error' or message.tags == 'danger' %}
+        <svg class="w-6 h-6 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+      {% else %}
+        <svg class="w-6 h-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><circle cx="12" cy="12" r="10" /><path d="M12 8v4m0 4h.01" /></svg>
+      {% endif %}
+      <!-- Message Text -->
+      <span class="flex-1 text-base font-medium text-gray-800">{{ message }}</span>
+      <!-- Close Button (optional, needs JS to hide) -->
+      <button type="button" onclick="this.parentElement.style.display='none'" class="ml-2 text-gray-400 hover:text-gray-700 focus:outline-none">
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+      </button>
+    </div>
+  {% endfor %}
+</div>
+<style>
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(-10px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+.animate-fade-in {
+  animation: fade-in 0.4s;
+}
+</style>
+{% endif %}

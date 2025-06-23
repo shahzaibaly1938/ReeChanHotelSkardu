@@ -48,7 +48,9 @@
           <a href="{% url 'Accomodation' %}" class="btn btn-primary text-base-100">Book Now</a>
         </div>
       </div>
+   
     <div class="w-full h-fit" id="content">
+         {% include "Components/messages.html" %}
         {% block content %}{% endblock %}
     </div>
     {% include "Components/footer.html" %}

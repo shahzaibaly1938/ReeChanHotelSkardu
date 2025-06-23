@@ -5,6 +5,10 @@ class Feature(models.Model):
     name = models.CharField(max_length=400)
     svg = models.TextField(blank=True, default='')
 
+    class Meta:
+        verbose_name = "Content Features"
+        verbose_name_plural = "Content Features"
+
     def __str__(self):
         return self.name
     
@@ -22,6 +26,10 @@ class Room_type(models.Model):
     features = models.ManyToManyField(Feature, default='')
     created_at = models.DateTimeField(auto_now_add=True)
 
+    class Meta:
+        verbose_name = "Content Room_Type"
+        verbose_name_plural = "Content Room_Types"
+
 
     def __str__(self):
         return self.name
@@ -38,6 +46,10 @@ class Booking(models.Model):
     no_of_rooms = models.IntegerField()
     adults = models.IntegerField()
     children = models.IntegerField()
+
+    class Meta:
+        verbose_name = "Data Bookings"
+        verbose_name_plural = "Data Bookings"
 
 
     def __str__(self):

@@ -16,34 +16,35 @@
 
     <div class="w-full flex justify-center items-center md:absolute top-[80%]">
         <div class="w-[95%] md:w-[80%] bg-primary rounded-3xl opacity-75 py-8 px-2 md:px-8 flex justify-center items-center shadow-2xl">
-            <form class="join p-2 flex flex-col md:flex-row md:flex-wrap w-full gap-0 md:gap-2" autocomplete="off">
+            <form class="join p-2 flex flex-col md:flex-row md:flex-wrap w-full gap-0 md:gap-2" autocomplete="off" method="post">
+                {% csrf_token %}
                 <fieldset class="fieldset flex-1 min-w-[220px]">
                     <legend class="fieldset-legend text-base-100 ml-2">Full Name</legend>
-                    <input type="text" class="input rounded-2xl mt-1 w-full" placeholder="Full Name" required />
+                    <input type="text" name="name" class="input rounded-2xl mt-1 w-full" placeholder="Full Name" required />
                 </fieldset>
                 <fieldset class="fieldset flex-1 min-w-[220px]">
                     <legend class="fieldset-legend text-base-100 ml-2">Email</legend>
-                    <input type="email" class="input rounded-2xl mt-1 w-full" placeholder="Email" required />
+                    <input type="email" name="email" class="input rounded-2xl mt-1 w-full" placeholder="Email" required />
                 </fieldset>
                 <fieldset class="fieldset flex-1 min-w-[220px]">
                     <legend class="fieldset-legend text-base-100 ml-2">Address</legend>
-                    <input type="text" class="input rounded-2xl mt-1 w-full" placeholder="Address" required />
+                    <input type="text" name="address" class="input rounded-2xl mt-1 w-full" placeholder="Address" required />
                 </fieldset>
                 <fieldset class="fieldset flex-1 min-w-[220px]">
                     <legend class="fieldset-legend text-base-100 ml-2">Phone</legend>
-                    <input type="tel" class="input rounded-2xl mt-1 w-full" placeholder="Phone" pattern="[0-9]{10,15}" title="Enter a valid phone number" required />
+                    <input type="tel" name="phone" class="input rounded-2xl mt-1 w-full" placeholder="Phone" pattern="[0-9]{10,15}" title="Enter a valid phone number" required />
                 </fieldset>
                 <fieldset class="fieldset flex-1 min-w-[220px]">
-                    <legend class="fieldset-legend text-base-100 ml-2">Event Start</legend>
-                    <input type="datetime-local" class="input rounded-2xl mt-1 w-full" required />
+                    <legend class="fieldset-legend text-base-100 ml-2">Event Date Time</legend>
+                    <input type="datetime-local" name="datetime" class="input rounded-2xl mt-1 w-full" required />
                 </fieldset>
                 <fieldset class="fieldset flex-1 min-w-[220px]">
-                    <legend class="fieldset-legend text-base-100 ml-2">Event End</legend>
-                    <input type="datetime-local" class="input rounded-2xl mt-1 w-full" required />
+                    <legend class="fieldset-legend text-base-100 ml-2">Event Duration</legend>
+                    <input type="number" name="hours" min="1" max="12" value="1" class="input mt-1 rounded-2xl md:ml-1" required />
                 </fieldset>
                 <fieldset class="fieldset flex-1 min-w-[220px] md:col-span-2">
                     <legend class="fieldset-legend text-base-100 ml-2">Additional Info</legend>
-                    <input type="text" class="input rounded-2xl mt-1 w-full" placeholder="Additional Info" />
+                    <textarea name="info" class="input rounded-2xl mt-1 w-full" placeholder="Additional Info" ></textarea>
                 </fieldset>
                 <div class="flex justify-center w-full mt-4">
                     <button type="submit" class="btn join-item rounded-2xl px-8">Reserve Now</button>

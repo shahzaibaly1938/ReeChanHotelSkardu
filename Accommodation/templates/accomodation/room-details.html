@@ -50,6 +50,8 @@
       </div>
     </div>
 
+    <form action="" method="post">
+      {% csrf_token %}
     <div class="w-full mt-2 h-[60vh] md:h-[20vh] flex  justify-center md:absolute top-[80%] items-center">
       <div class=" w-[90%] md:w-[95%] bg-primary rounded-3xl opacity-75 h-full flex justify-center items-center ">
         <div class="join p-2 flex flex-col md:flex-row items-center md:justify-around">
@@ -57,7 +59,7 @@
             <div class="flex ml-1">
               <fieldset class="fieldset">
                 <legend class="fieldset-legend text-base-100 ml-2">Full Name</legend>
-                <input type="text" name="name" class="input rounded-2xl -mt-2 md:ml-1" />
+                <input required type="text" name="name" class="input rounded-2xl -mt-2 md:ml-1" />
               </fieldset>
            
             </div>
@@ -65,56 +67,72 @@
             <div class="flex ml-1">
               <fieldset class="fieldset">
                 <legend class="fieldset-legend text-base-100 ml-2">Check In</legend>
-                <input type="date" name="checkin" class="input rounded-2xl -mt-2 md:ml-1" />
+                <input required type="date" name="checkin" class="input rounded-2xl -mt-2 md:ml-1" />
               </fieldset>
            
               <fieldset class="fieldset ml-1">
                 <legend class="fieldset-legend text-base-100 ml-2">Check Out</legend>
-                <input type="date" name="checkout" class="input rounded-2xl -mt-2 md:ml-1" />
+                <input required type="date" name="checkout" class="input rounded-2xl -mt-2 md:ml-1" />
               </fieldset>
             </div>
 
             <div class="flex ml-1">
               <fieldset class="fieldset">
                 <legend class="fieldset-legend text-base-100 ml-2">Room Type</legend>
-                <select class="select rounded-2xl -mt-2 md:ml-1">
-                  <option>Standard</option>
-                  <option>Royal</option>
-                  <option>Anchan</option>
+                <select required name="room_type" class="select rounded-2xl -mt-2 md:ml-1">
+                  <option selected value="{{room.id}}">{{room.name}}</option>
+                  {% for room_type in room_types  %}
+                  <option value="{{room_type.id}}">{{room_type.name}}</option>
+                  {% endfor %}
                 </select>
               </fieldset>
            
               <fieldset class="fieldset ml-1">
                 <legend class="fieldset-legend text-base-100 ml-2">Rooms</legend>
-                <select class="select rounded-2xl -mt-2 md:ml-1">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                  <option>6</option>
-                  <option>7</option>
-                  <option>8</option>
-                  <option>9</option>
+                <select required name="total_rooms" class="select rounded-2xl -mt-2 md:ml-1">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
                 </select>
               </fieldset>
               <fieldset class="fieldset ml-1">
                 <legend class="fieldset-legend text-base-100 ml-2">Adults</legend>
-                <select class="select rounded-2xl -mt-2 md:ml-1">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
+                <select required name="no_of_adults" class="select rounded-2xl -mt-2 md:ml-1">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="5">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                  <option value="13">13</option>
+                  <option value="14">14</option>
+                  <option value="15">15</option>
                 </select>
               </fieldset>
               <fieldset class="fieldset ml-1">
                 <legend class="fieldset-legend text-base-100 ml-2">Children</legend>
-                <select class="select rounded-2xl -mt-2 md:ml-1">
-                  <option>0</option>
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
+                <select required name="total_children" class="select rounded-2xl -mt-2 md:ml-1">
+                  <option value="0">0</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
                 </select>
               </fieldset>
             </div>
@@ -122,21 +140,22 @@
             <div class="flex ml-1">
               <fieldset class="fieldset">
                 <legend class="fieldset-legend text-base-100 ml-2">Phone Number</legend>
-                <input type="tel" placeholder="+9234999999" class="input rounded-2xl -mt-2 md:ml-1" />
+                <input required type="tel" name="number" placeholder="+9234999999" class="input rounded-2xl -mt-2 md:ml-1" />
               </fieldset>
            
               <fieldset class="fieldset ml-2">
                 <legend class="fieldset-legend text-base-100 ml-2">Email</legend>
-                <input type="email" placeholder="@gmail.com" class="input rounded-2xl -mt-2 md:ml-1" />
+                <input required type="email" name="email" placeholder="@gmail.com" class="input rounded-2xl -mt-2 md:ml-1" />
               </fieldset>
             </div>
           
             <div class="flex ml-2 mt-5">
-              <button class="btn join-item rounded-2xl ">Reserve Now</button>
+              <button type="submit" class="btn join-item rounded-2xl ">Reserve Now</button>
             </div>
         </div>
       </div>
     </div>
+    </form>
 
     <!-- Room Features Section -->
     <div class="w-full flex flex-col md:flex-row justify-center items-start gap-8 mt-10 px-4">
