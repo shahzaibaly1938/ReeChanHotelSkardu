@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Restaurant, Special_Dish, Dishe, Aboutus, Contactus, MeetingsPage, Home, Table_Reservation, MeetingsnEvent
+from .models import Restaurant, Special_Dish, Dishe, Aboutus, Contactus, MeetingsPage, Home, Table_Reservation, MeetingsnEvent, Contact
 from Accommodation.models import Room_type
 from django.contrib import messages
 # Create your views here.
@@ -37,6 +37,16 @@ def restaurant(request):
 
 
 def contact(request):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        message = request.POST.get('message')
+        
+        contact_message = Contact(name=name, email=email, message=message)
+        contact_message.save()
+        messages.success(request, "Your message has been received. We’ll get in touch with you shortly.")
+        return redirect('home')
+
     contactus = Contactus.objects.all().first()
     return render(request, 'pages/contact.html',{'contactus':contactus})
 

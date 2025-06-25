@@ -45,8 +45,8 @@ class Contact(models.Model):
     message = models.TextField()
 
     class Meta:
-        verbose_name = "Page Contact"
-        verbose_name_plural = "Page Contacts"
+        verbose_name = "Data Contact"
+        verbose_name_plural = "Data Contacts"
 
     def __str__(self):
         return self.name
@@ -135,8 +135,8 @@ class Contactus(models.Model):
     phone = models.CharField(max_length=20)
 
     class Meta:
-        verbose_name = "Data Contact"
-        verbose_name_plural = "Data Contacts"
+        verbose_name = "Page Contact"
+        verbose_name_plural = "Page Contact"
 
     def __str__(self):
         return self.name
